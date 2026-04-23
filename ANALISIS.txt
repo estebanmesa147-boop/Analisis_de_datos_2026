@@ -1,0 +1,10 @@
+import pandas as pd 
+
+
+notas = pd.read_excel("notas_estudiantes.xlsx")
+
+print(notas)
+
+print(notas.describe())
+
+print("promedio de matemáticas:",Notas["matemáticas"].mean())

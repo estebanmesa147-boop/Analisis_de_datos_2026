@@ -1,0 +1,22 @@
+import pandas as pd
+notasEstudiantes = []
+while True:
+    print("Menú de Opeciones")
+    print("1. Leer Archivo")
+    print("2. Mostrar Datos")
+    print("3. Eliminar datos nuelos")
+    print("4. Salir")
+
+    opcion = int(input("Elige una de las Opciones"))
+
+    if  opcion == 1:
+        notasEstudiantes = pd.read_excel("notas_estudiantes.xlsx")
+    elif opcion == 2:
+        print(notasEstudiantes)
+    elif opcion == 3:
+      notasEstudiantes= notas_estudiantes.dropna
+      notasEstudiantes()
+    elif opcion == 4:
+        break
+    else:
+        print("Ingrese una Opcion Valida")

@@ -1,0 +1,73 @@
+<?xml version='1.0' encoding='utf-8'?>
+<data>
+  <row>
+    <index>0</index>
+    <ID_Paciente>1</ID_Paciente>
+    <Nombre>María López</Nombre>
+    <Edad>35</Edad>
+    <Sexo>Femenino</Sexo>
+    <Enfermedad>Diabetes</Enfermedad>
+    <Fecha_Consulta>2023-03-15 00:00:00</Fecha_Consulta>
+    <Presión_Arterial>120/80</Presión_Arterial>
+    <Nivel_Glucosa>180</Nivel_Glucosa>
+    <Hospital>Hospital Central</Hospital>
+    <Fecha_Hora_Consulta>2023-03-15 14:45:00</Fecha_Hora_Consulta>
+    <Fecha_Hora_Atencion>2023-03-15 16:43:00</Fecha_Hora_Atencion>
+  </row>
+  <row>
+    <index>1</index>
+    <ID_Paciente>2</ID_Paciente>
+    <Nombre>Juan Pérez</Nombre>
+    <Edad>50</Edad>
+    <Sexo>Masculino</Sexo>
+    <Enfermedad>Hipertensión</Enfermedad>
+    <Fecha_Consulta>2023-05-22 00:00:00</Fecha_Consulta>
+    <Presión_Arterial>140/90</Presión_Arterial>
+    <Nivel_Glucosa>95</Nivel_Glucosa>
+    <Hospital>Hospital Norte</Hospital>
+    <Fecha_Hora_Consulta>2023-05-22 08:08:00</Fecha_Hora_Consulta>
+    <Fecha_Hora_Atencion>2023-05-22 09:47:00</Fecha_Hora_Atencion>
+  </row>
+  <row>
+    <index>2</index>
+    <ID_Paciente>3</ID_Paciente>
+    <Nombre>Ana García</Nombre>
+    <Edad>28</Edad>
+    <Sexo>Femenino</Sexo>
+    <Enfermedad>Asma</Enfermedad>
+    <Fecha_Consulta>2023-07-10 00:00:00</Fecha_Consulta>
+    <Presión_Arterial>110/70</Presión_Arterial>
+    <Nivel_Glucosa>88</Nivel_Glucosa>
+    <Hospital>Hospital Sur</Hospital>
+    <Fecha_Hora_Consulta>2023-07-10 18:36:00</Fecha_Hora_Consulta>
+    <Fecha_Hora_Atencion>2023-07-10 19:09:00</Fecha_Hora_Atencion>
+  </row>
+  <row>
+    <index>3</index>
+    <ID_Paciente>4</ID_Paciente>
+    <Nombre>Carlos Ruiz</Nombre>
+    <Edad>65</Edad>
+    <Sexo>Masculino</Sexo>
+    <Enfermedad>Diabetes</Enfermedad>
+    <Fecha_Consulta>2024-01-03 00:00:00</Fecha_Consulta>
+    <Presión_Arterial>130/85</Presión_Arterial>
+    <Nivel_Glucosa>210</Nivel_Glucosa>
+    <Hospital>Hospital Este</Hospital>
+    <Fecha_Hora_Consulta>2024-01-03 08:29:00</Fecha_Hora_Consulta>
+    <Fecha_Hora_Atencion>2024-01-03 11:27:00</Fecha_Hora_Atencion>
+  </row>
+  <row>
+    <index>4</index>
+    <ID_Paciente>5</ID_Paciente>
+    <Nombre>Luisa Méndez</Nombre>
+    <Edad>42</Edad>
+    <Sexo>Femenino</Sexo>
+    <Enfermedad>Hipertensión</Enfermedad>
+    <Fecha_Consulta>2023-09-18 00:00:00</Fecha_Consulta>
+    <Presión_Arterial>135/88</Presión_Arterial>
+    <Nivel_Glucosa>102</Nivel_Glucosa>
+    <Hospital>Hospital Central</Hospital>
+    <Fecha_Hora_Consulta>2023-09-18 12:55:00</Fecha_Hora_Consulta>
+    <Fecha_Hora_Atencion>2023-09-18 15:20:00</Fecha_Hora_Atencion>
+  </row>
+</data>

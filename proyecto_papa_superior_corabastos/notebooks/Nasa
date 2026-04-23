@@ -1,0 +1,71 @@
+import urllib.request
+import json
+
+# Coordenadas de las zonas paperas principales
+# Boyacá: Ventaquemada / área de Tunja
+# Cundinamarca: área de Zipaquirá / Facatativá
+zonas = {
+    'Boyaca'      : {'lat': 5.4,  'lon': -73.5},
+    'Cundinamarca': {'lat': 4.9,  'lon': -74.0}
+}
+
+resultados = {}
+
+for zona, coords in zonas.items():
+    # NASA POWER API — gratuita, sin registro, datos mensuales
+    url = (
+        f"https://power.larc.nasa.gov/api/temporal/monthly/point"
+        f"?parameters=PRECTOTCORR"
+        f"&community=AG"
+        f"&longitude={coords['lon']}"
+        f"&latitude={coords['lat']}"
+        f"&start=2019"
+        f"&end=2025"
+        f"&format=JSON"
+    )
+    print(f"Descargando {zona}...")
+    with urllib.request.urlopen(url, timeout=30) as response:
+        data = json.loads(response.read().decode())
+        resultados[zona] = data['properties']['parameter']['PRECTOTCORR']
+        print(f"  ✅ {len(resultados[zona])} registros")
+
+print("✅ Descarga completada")
+
+import pandas as pd
+
+meses_orden = ['Enero','Febrero','Marzo','Abril','Mayo','Junio',
+               'Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre']
+
+# Convertir resultados de NASA POWER a dataframe
+# El formato de la clave es 'YYYYMM' (ej: '201901' = enero 2019)
+registros = []
+for zona, data in resultados.items():
+    for clave, valor in data.items():
+        if len(clave) == 6:   # formato YYYYMM
+            anio = int(clave[:4])
+            mes_n = int(clave[4:])
+            if 2019 <= anio <= 2025 and valor != -999.0:  # -999 = dato faltante en NASA
+                registros.append({
+                    'Ano'       : anio,
+                    'mes_num'   : mes_n,
+                    'zona'      : zona,
+                    'precip_mm' : round(valor, 2)
+                })
+
+df_clima = pd.DataFrame(registros)
+
+# Promediar las dos zonas por mes
+df_precip = df_clima.groupby(['Ano','mes_num'])['precip_mm'].mean().reset_index()
+df_precip['precip_mm'] = df_precip['precip_mm'].round(2)
+
+# Agregar nombre del mes
+num_mes = {i+1: m for i, m in enumerate(meses_orden)}
+df_precip['mes'] = df_precip['mes_num'].map(num_mes)
+
+print("✅ Precipitación construida:", df_precip.shape)
+print()
+print(df_precip.head(12).to_string())
+
+# Guardar en raw para referencia
+df_precip.to_csv(f"{RAW}\\precipitacion_boyaca_cundinamarca_2019_2025.csv", index=False)
+print("✅ Guardado en data/raw/")

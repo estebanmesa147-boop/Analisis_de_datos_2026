@@ -1,0 +1,6 @@
+,ID_Paciente,Nombre,Edad,Sexo,Enfermedad,Fecha_Consulta,Presión_Arterial,Nivel_Glucosa,Hospital,Fecha_Hora_Consulta,Fecha_Hora_Atencion,demora_atencion
+0,1,María López,35,Femenino,Diabetes,2023-03-15,120/80,180,Hospital Central,2023-03-15 14:45:00,2023-03-15 16:43:00,0 days 01:58:00
+1,2,Juan Pérez,50,Masculino,Hipertensión,2023-05-22,140/90,95,Hospital Norte,2023-05-22 08:08:00,2023-05-22 09:47:00,0 days 01:39:00
+2,3,Ana García,28,Femenino,Asma,2023-07-10,110/70,88,Hospital Sur,2023-07-10 18:36:00,2023-07-10 19:09:00,0 days 00:33:00
+3,4,Carlos Ruiz,65,Masculino,Diabetes,2024-01-03,130/85,210,Hospital Este,2024-01-03 08:29:00,2024-01-03 11:27:00,0 days 02:58:00
+4,5,Luisa Méndez,42,Femenino,Hipertensión,2023-09-18,135/88,102,Hospital Central,2023-09-18 12:55:00,2023-09-18 15:20:00,0 days 02:25:00

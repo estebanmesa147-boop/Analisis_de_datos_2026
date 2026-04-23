@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estadisticas</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+
+</head>
+<body>
+    <h1>Texto grande</h1>
+    <h2>Texto mediano</h2>
+    <h3>Texto pequeño</h3>
+    <table class="table table-responsive">
+        <thead>          
+         <th>Nombre</th> 
+         <th>Edad</th> 
+         <th>Genero</th> 
+    
+        </thead>
+        <tbody id="cuerpo-tabla">
+       
+     </tbody>    
+    </table>
+    <div>
+        <canvas id="Estadisticas"></canvas>
+      </div>
+      
+      <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+         <script>
+        
+         async function obtenerDatos() {
+             let nombres=[];
+             let edades=[];
+             const respuesta = await fetch("http://127.0.0.1:5000/listaPersonas");
+             console.log(respuesta);
+             const datos = await respuesta.json();
+             console.log(datos);
+             nombres=datos.map(persona => persona.nombre);
+             edades= datos.map(persona => persona.edad);
+             cuerpoTabla= document.getElementById("cuerpo-tabla");
+             datos.forEach(persona => {
+                fila= document.createElement("tr");
+                fila.innerHTML=`<td>${persona.nombre}</td>
+                <td>${persona.edad}</td>
+                <td>${persona.genero}</td>`;
+            
+                cuerpoTabla.appendChild(fila);
+                
+            });
+            const stats = document.getElementById('Estadisticas');
+
+new Chart(stats, {
+  type: 'bar',
+  data: {
+    labels:nombres,
+    datasets: [{
+      label: 'Edad por persona',
+      data: edades,
+      borderWidth: 1
+    }]
+  },
+  options: {
+    scales: {
+      y: {
+        beginAtZero: true
+      }
+    }
+  }
+});
+
+
+
+
+        }
+
+
+
+        document.addEventListener("DOMContentLoaded",obtenerDatos);
+    </script>
+</body>
+</html>
